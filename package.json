@@ -1,23 +1,18 @@
 {
-  "name": "unigossip",
+  "name": "backend",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node backend/server.js"
   },
+  "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "description": "",
   "dependencies": {
-    "@chakra-ui/icons": "^2.2.4",
     "dotenv": "^16.4.7",
-    "express": "^4.21.2",
-    "firebase": "^11.2.0",
-    "mongoose": "^8.9.5",
-    "next-themes": "^0.4.4",
-    "react-firebase-hooks": "^5.1.1",
-    "react-icons": "^5.4.0",
-    "zustand": "^5.0.3"
+    "express": "^4.21.2"
   }
 }
