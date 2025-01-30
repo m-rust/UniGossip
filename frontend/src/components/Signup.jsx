@@ -11,8 +11,15 @@ import {
 } from "@chakra-ui/react";
 import { PasswordInput } from "@/components/ui/password-input";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import "./style.css";
 import SigninUsingEmailAndPsw from "@/hooks/SigninUsingEmailAndPsw";
 
+import { Input, Flex, Text, Card, VStack, Button, Box } from "@chakra-ui/react";
+import { PasswordInput } from "@/components/ui/password-input";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import "./style.css";
 const Signup = () => {
   const [inputs, setInputs] = useState({
     username: "",
@@ -49,7 +56,9 @@ const Signup = () => {
           minW="sm"
         >
           <Card.Header>
-            <Card.Title color="gray.300">UniGossip</Card.Title>
+            <Card.Title color="gray.300" fontSize={"3xl"}>
+              UniGossip
+            </Card.Title>
             <Text color="pink">xoxo gossip girl</Text>
           </Card.Header>
 
@@ -79,14 +88,14 @@ const Signup = () => {
                   setInputs({ ...inputs, password: e.target.value })
                 }
               ></PasswordInput>
-              <Input
+              <PasswordInput
                 placeholder="Confirm password"
                 type="password"
                 value={inputs.confirmPassword}
                 onChange={(e) =>
                   setInputs({ ...inputs, confirmPassword: e.target.value })
                 }
-              ></Input>
+              ></PasswordInput>
               {inputs.password !== inputs.confirmPassword ? (
                 <Text color="red.500">Passwords don't match</Text>
               ) : null}
@@ -98,7 +107,10 @@ const Signup = () => {
               onClick = {() => signup(inputs)}>Sign up</Button>
 
               <Text>
-                Already have an account? <Link color={"blue.300"}>Log in</Link>
+                Already have an account?{" "}
+                <Link className="link link-hover" to={"/login"}>
+                  Log in
+                </Link>
               </Text>
             </VStack>
           </Card.Body>
