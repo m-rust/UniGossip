@@ -7,9 +7,11 @@ import {
   Button,
   Link,
   Box,
+  Alert,
 } from "@chakra-ui/react";
 import { PasswordInput } from "@/components/ui/password-input";
 import { useState } from "react";
+import SigninUsingEmailAndPsw from "@/hooks/SigninUsingEmailAndPsw";
 
 const Signup = () => {
   const [inputs, setInputs] = useState({
@@ -18,6 +20,23 @@ const Signup = () => {
     password: "",
     confirmPassword: "",
   });
+
+  const Demo = (msg) => {
+    return (
+      <Alert.Root status="error">
+        <Alert.Indicator />
+        <Alert.Content>
+          <Alert.Title>Error</Alert.Title>
+          <Alert.Description>
+            {msg}
+          </Alert.Description>
+        </Alert.Content>
+      </Alert.Root>
+    )
+  }
+
+  const {loading, signup, error} = SigninUsingEmailAndPsw()
+
   return (
     <>
       <Flex align="center" justifyContent="center" width="100%" height="100vh">
@@ -72,7 +91,11 @@ const Signup = () => {
                 <Text color="red.500">Passwords don't match</Text>
               ) : null}
 
-              <Button>Sign up</Button>
+              {error && (Demo(error.message))}
+
+              <Button 
+              isLoading = {loading}
+              onClick = {() => signup(inputs)}>Sign up</Button>
 
               <Text>
                 Already have an account? <Link color={"blue.300"}>Log in</Link>
