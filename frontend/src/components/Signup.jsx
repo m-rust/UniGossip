@@ -5,20 +5,16 @@ import {
   Card,
   VStack,
   Button,
-  Link,
   Box,
   Alert,
 } from "@chakra-ui/react";
 import { PasswordInput } from "@/components/ui/password-input";
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./style.css";
 import SigninUsingEmailAndPsw from "@/hooks/SigninUsingEmailAndPsw";
 
-import { Input, Flex, Text, Card, VStack, Button, Box } from "@chakra-ui/react";
-import { PasswordInput } from "@/components/ui/password-input";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+
 import "./style.css";
 const Signup = () => {
   const [inputs, setInputs] = useState({
@@ -34,15 +30,13 @@ const Signup = () => {
         <Alert.Indicator />
         <Alert.Content>
           <Alert.Title>Error</Alert.Title>
-          <Alert.Description>
-            {msg}
-          </Alert.Description>
+          <Alert.Description>{msg}</Alert.Description>
         </Alert.Content>
       </Alert.Root>
-    )
-  }
+    );
+  };
 
-  const {loading, signup, error} = SigninUsingEmailAndPsw()
+  const { loading, signup, error } = SigninUsingEmailAndPsw();
 
   return (
     <>
@@ -100,11 +94,11 @@ const Signup = () => {
                 <Text color="red.500">Passwords don't match</Text>
               ) : null}
 
-              {error && (Demo(error.message))}
+              {error && Demo(error.message)}
 
-              <Button 
-              isLoading = {loading}
-              onClick = {() => signup(inputs)}>Sign up</Button>
+              <Button isLoading={loading} onClick={() => signup(inputs)}>
+                Sign up
+              </Button>
 
               <Text>
                 Already have an account?{" "}
