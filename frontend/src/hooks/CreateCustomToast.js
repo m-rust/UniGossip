@@ -1,16 +1,12 @@
 import { toaster } from "@/components/ui/toaster";
 
-const useShowToast = () => {
-  const showToast = (title, description, status) => {
-    toaster.create({
-      title: title,
-      description: description,
-      status: status,
-      duration: 3000,
-      isClosable: true,
-    });
-  };
-  return showToast;
+const showToast = (title, description, type) => {
+  console.log("desc is", description);
+  toaster.create({
+    title: title,
+    description: description,
+    type: type,
+  });
 };
 
-export default useShowToast;
+export default showToast;
