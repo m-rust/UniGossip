@@ -11,15 +11,8 @@ import {
 } from "@chakra-ui/react";
 import { PasswordInput } from "@/components/ui/password-input";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import "./style.css";
 import SigninUsingEmailAndPsw from "@/hooks/SigninUsingEmailAndPsw";
-
-import { Input, Flex, Text, Card, VStack, Button, Box } from "@chakra-ui/react";
-import { PasswordInput } from "@/components/ui/password-input";
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import "./style.css";
 const Signup = () => {
   const [inputs, setInputs] = useState({
     username: "",
